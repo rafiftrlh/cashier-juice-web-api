@@ -1,4 +1,5 @@
 import express from "express"
+import systemUserRoute from "./routes/system_user.route.js"
 
 const app = express()
 
