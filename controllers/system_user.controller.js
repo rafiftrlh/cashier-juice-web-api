@@ -45,7 +45,7 @@ export const getAllStaff = async (req, res) => {
     const users = await prisma.system_Users.findMany({
       where: {
         role: {
-          not: "ADMIN"
+          not: "admin"
         }
       }
     })
@@ -137,7 +137,7 @@ export const softDeleteStaff = async (req, res) => {
       return res.status(404).json({ msg: "User not found" })
     }
 
-    if (user.role === "ADMIN") {
+    if (user.role === "admin") {
       return res.status(403).json({ msg: "Cannot delete admin user" })
     }
 
@@ -171,7 +171,7 @@ export const forceDeleteStaff = async (req, res) => {
       return res.status(404).json({ msg: "User not found" })
     }
 
-    if (user.role === "ADMIN") {
+    if (user.role === "admin") {
       return res.status(403).json({ msg: "Cannot delete admin user" })
     }
 

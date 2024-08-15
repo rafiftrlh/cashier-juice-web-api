@@ -19,7 +19,6 @@ model System_Users {
   email     String       @unique
   password  String
   role      Roles
-  roleId    String
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
   deletedAt DateTime?
