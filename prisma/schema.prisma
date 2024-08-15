@@ -18,7 +18,7 @@ model System_Users {
   name      String
   email     String       @unique
   password  String
-  role      Roles        @relation(fields: [roleId], references: [id])
+  role      Roles
   roleId    String
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
@@ -27,13 +27,11 @@ model System_Users {
   stockLogs Stock_Logs[]
 }
 
-model Roles {
-  id        String         @id @default(cuid())
-  roleName  String         @unique
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
-  deletedAt DateTime?
-  users     System_Users[]
+enum Roles {
+  admin
+  warehouse_staff
+  cashier_staff
+  juice_maker
 }
 
 model Vip_Customers {
